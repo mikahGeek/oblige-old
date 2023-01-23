@@ -10,6 +10,11 @@
       "StackName": "amplify-obligeapp-dev-124636",
       "StackId": "arn:aws:cloudformation:us-east-2:259437231177:stack/amplify-obligeapp-dev-124636/f29bed20-904d-11ed-9053-0a74f296a8f6",
       "AmplifyAppId": "dmuvef58mea4p"
+    },
+    "categories": {
+      "auth": {
+        "obligeappa248645c": {}
+      }
     }
   }
 }
