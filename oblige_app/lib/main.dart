@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 
 import 'amplifyconfiguration.dart';
 
+import 'content.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -55,7 +57,8 @@ class _MyAppState extends State<MyApp> {
             ListTile(leading: Icon(Icons.account_circle), title: Text('Profile'))
           ]
         )
-      )
+      ),
+      body: Content()
     );
   }
    @override
