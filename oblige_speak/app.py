@@ -1,5 +1,5 @@
 import os
-
+import sys
 import openai
 import json
 from flask import Flask, redirect, render_template, request, url_for, jsonify
@@ -16,13 +16,18 @@ def speak():
   response = openai.Completion.create(
     model="text-davinci-003",
     prompt=generate_prompt(input),
-    temperature=0.6,
+    temperature=0,
+    max_tokens=1500
   )
-  return response.choices[0].text;
+  logging.info('this is an info log');
+  print('hello world');
+  print(f"len={len(response.choices)}");
+  text = '';
+  for choice in response.choices:
+    text = choice.text + ' ';
+  return text;
 
 def generate_prompt(input):
     return """
-Prompt: {}
-Responses:""".format(
-        input.capitalize()
-    )
+      Text: {}
+      Responses:""".format( input.capitalize() )
