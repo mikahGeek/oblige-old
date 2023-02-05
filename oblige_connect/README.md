@@ -6,6 +6,10 @@ This will be the connectivity layer between all oblige services and interfaces. 
 
 1. If you don’t have Python installed, [install it from here](https://www.python.org/downloads/)
 
+### Additional Prerequisites
+* [AWS CLI](https://aws.amazon.com/cli/)
+* [SAM CLI](https://github.com/awslabs/aws-sam-cli)
+
 2. Clone this repository
 
 3. Navigate into the project directory
