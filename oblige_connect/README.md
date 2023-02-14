@@ -2,7 +2,7 @@
 
 This project contains source code and supporting files for a serverless application that you can deploy with the SAM CLI. It includes [Lambda Powertools for operational best practices](https://github.com/awslabs/aws-lambda-powertools-python), and the following files and folders.
 
-- **`hello_world`** - Code for the application's Lambda function.
+- **`src`** - Code for the application's Lambda function.
 - **`events`** - Invocation events that you can use to invoke the function.
 - **`tests`** - Unit tests for the application code. 
 - **`template.yaml`** - A template that defines the application's AWS resources.
@@ -46,7 +46,7 @@ Whenever you change your application code, you'll have to run build command:
 oblige_connect$ make build
 ```
 
-The SAM CLI installs dependencies defined in `hello_world/requirements.txt`, creates a deployment package, and saves it in the `.aws-sam/build` folder.
+The SAM CLI installs dependencies defined in `src/requirements.txt`, creates a deployment package, and saves it in the `.aws-sam/build` folder.
 
 Test a single function by invoking it directly with a test event:
 
@@ -135,5 +135,5 @@ We included a `Makefile` for your convenience - You can find all commands you ca
 Pipenv takes care of isolating dev dependencies and app dependencies. As SAM CLI requires a `requirements.txt` file, you'd need to generate one if new app dependencies have been added:
 
 ```bash
-oblige_connect$ pipenv lock -r > hello_world/requirements.txt
+oblige_connect$ pipenv lock -r > src/requirements.txt
 ```
