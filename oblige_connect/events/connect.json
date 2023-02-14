@@ -1,5 +1,5 @@
 {
-    "body": "connect",
+    "body": "connected",
     "resource": "/connected",
     "path": "/connected/a/b",
     "httpMethod": "GET",

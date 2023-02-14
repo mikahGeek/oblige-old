@@ -3,6 +3,8 @@ from aws_lambda_powertools.event_handler.api_gateway import ApiGatewayResolver
 from aws_lambda_powertools.logging import correlation_paths
 from aws_lambda_powertools.metrics import MetricUnit
 
+import db
+
 logger = Logger(service="APP")
 tracer = Tracer(service="APP")
 metrics = Metrics(namespace="MyApp", service="APP")
@@ -13,7 +15,10 @@ connect_app = ApiGatewayResolver()
 def connected(source, dest):
     tracer.put_annotation(key="source", value=source)
     tracer.put_annotation(key="dest", value=dest)
-    return {"source": source, "dest": dest, "connected": True}
+    return {"source": source, "dest": dest, "connected": get_connected_from_db(source, dest)}
+
+def get_connected_from_db(source, dest):
+    return db.get_connected(source, dest);
 
 @tracer.capture_lambda_handler
 @logger.inject_lambda_context(
