@@ -27,6 +27,7 @@ If you prefer to use an integrated development environment (IDE) to build and te
 ## Deploy the sample application
 
 > **Already know this sample? Run: `make hurry` - This command will install app deps, build, and deploy your Serverless application using SAM.**
+> **First time, or need to change deploy settings? Use `make hurry.first` to run the sam with `deploy.guided`**
 
 Build and deploy your application for the first time by running the following commands in your shell:
 

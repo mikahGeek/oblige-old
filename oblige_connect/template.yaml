@@ -64,6 +64,30 @@ Resources:
             Tags:
                 LambdaPowertools: python
 
+
+    ConnectFunction:
+        Type: AWS::Serverless::Function # More info about Function Resource: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html
+        Properties:
+            Handler: app.lambda_handler
+            CodeUri: hello_world
+            Description: Hello World function
+            Events:
+                HelloPath:
+                    Type: Api # More info about API Event Source: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-property-function-api.html
+                    Properties:
+                        Path: /connect
+                        Method: GET
+                HelloYou:
+                    Type: Api
+                    Properties:
+                        Path: /connect/{source}/{dest}
+                        Method: GET
+            Environment:
+                Variables:
+                    PARAM1: VALUE
+            Tags:
+                LambdaPowertools: python
+
     # Sample policy to add additional permissions to your Lambda
     # HelloWorldFunctionAdditionalPermission:
     #     Type: "AWS::IAM::Policy"
@@ -88,3 +112,11 @@ Outputs:
       Description: "Hello World Lambda Function ARN"
       Value: !GetAtt HelloWorldFunction.Arn
 
+    
+    ConnectApigwURL:
+      Description: "API Gateway endpoint URL for Prod environment for Connect Function"
+      Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/connect"
+
+    ConnectFunction:
+      Description: "Connect Lambda Function ARN"
+      Value: !GetAtt ConnectFunction.Arn

@@ -26,6 +26,12 @@ def hello():
     metrics.add_metric(name="SuccessfulGreetings", unit=MetricUnit.Count, value=1)
     return {"message": "hello unknown!"}
 
+@app.get("/connect/<source>/<dest>")
+@tracer.capture_method
+def connect(source, dest):
+    tracer.put_annotation(key="source", value=source)
+    tracer.put_annotation(key="dest", value=dest)
+    return {"source": source, "dest": dest, "connected": True}
 
 @tracer.capture_lambda_handler
 @logger.inject_lambda_context(

@@ -58,7 +58,12 @@ ci: ##=> Run full workflow - Install deps, build deps, and deploy
 	$(MAKE) build
 	$(MAKE) deploy
 
-hurry: ##=> Run full workflow for the first time
+hurry:
+	$(MAKE) install
+	$(MAKE) build
+	$(MAKE) deploy
+
+hurry.first: ##=> Run full workflow for the first time
 	$(MAKE) install
 	$(MAKE) build
 	$(MAKE) deploy.guided
