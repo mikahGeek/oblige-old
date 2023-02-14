@@ -8,9 +8,9 @@ tracer = Tracer(service="APP")
 metrics = Metrics(namespace="MyApp", service="APP")
 connect_app = ApiGatewayResolver()
 
-@connect_app.get("/connect/<source>/<dest>")
+@connect_app.get("/connected/<source>/<dest>")
 @tracer.capture_method
-def connect(source, dest):
+def connected(source, dest):
     tracer.put_annotation(key="source", value=source)
     tracer.put_annotation(key="dest", value=dest)
     return {"source": source, "dest": dest, "connected": True}

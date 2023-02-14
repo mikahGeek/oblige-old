@@ -1,7 +1,7 @@
 {
     "body": "connect",
-    "resource": "/connect",
-    "path": "/connect/a/b",
+    "resource": "/connected",
+    "path": "/connected/a/b",
     "httpMethod": "GET",
     "isBase64Encoded": true,
     "headers": {
@@ -100,8 +100,8 @@
             "userAgent": "Custom User Agent String",
             "user": null
         },
-        "path": "/Prod/connect/a/b",
-        "resourcePath": "/connect/a/b",
+        "path": "/Prod/connected/a/b",
+        "resourcePath": "/connected/a/b",
         "httpMethod": "POST",
         "apiId": "1234567890",
         "protocol": "HTTP/1.1"

@@ -70,17 +70,17 @@ Resources:
         Properties:
             Handler: connect.lambda_handler
             CodeUri: src/connect
-            Description: Hello World function
+            Description: Connect function returns whether two resources are connected
             Events:
                 HelloPath:
                     Type: Api # More info about API Event Source: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-property-function-api.html
                     Properties:
-                        Path: /connect
+                        Path: /connected
                         Method: GET
                 HelloYou:
                     Type: Api
                     Properties:
-                        Path: /connect/{source}/{dest}
+                        Path: /connected/{source}/{dest}
                         Method: GET
             Environment:
                 Variables:
@@ -115,7 +115,7 @@ Outputs:
     
     ConnectApigwURL:
       Description: "API Gateway endpoint URL for Prod environment for Connect Function"
-      Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/connect"
+      Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/connected"
 
     ConnectFunction:
       Description: "Connect Lambda Function ARN"
