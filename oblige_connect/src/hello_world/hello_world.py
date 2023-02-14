@@ -6,10 +6,10 @@ from aws_lambda_powertools.metrics import MetricUnit
 logger = Logger(service="APP")
 tracer = Tracer(service="APP")
 metrics = Metrics(namespace="MyApp", service="APP")
-app = ApiGatewayResolver()
+hello_world_app = ApiGatewayResolver()
 
 
-@app.get("/hello/<name>")
+@hello_world_app.get("/hello/<name>")
 @tracer.capture_method
 def hello_name(name):
     tracer.put_annotation(key="User", value=name)
@@ -18,7 +18,7 @@ def hello_name(name):
     return {"message": f"hello {name}!"}
 
 
-@app.get("/hello")
+@hello_world_app.get("/hello")
 @tracer.capture_method
 def hello():
     tracer.put_annotation(key="User", value="unknown")
@@ -26,12 +26,6 @@ def hello():
     metrics.add_metric(name="SuccessfulGreetings", unit=MetricUnit.Count, value=1)
     return {"message": "hello unknown!"}
 
-@app.get("/connect/<source>/<dest>")
-@tracer.capture_method
-def connect(source, dest):
-    tracer.put_annotation(key="source", value=source)
-    tracer.put_annotation(key="dest", value=dest)
-    return {"source": source, "dest": dest, "connected": True}
 
 @tracer.capture_lambda_handler
 @logger.inject_lambda_context(
@@ -40,7 +34,8 @@ def connect(source, dest):
 @metrics.log_metrics(capture_cold_start_metric=True)
 def lambda_handler(event, context):
     try:
-        return app.resolve(event, context)
+        return hello_world_app.resolve(event, context)
     except Exception as e:
         logger.exception(e)
         raise
+
