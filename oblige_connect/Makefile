@@ -44,6 +44,7 @@ deploy: ##=> Deploy app using previously saved SAM CLI configuration
 
 invoke: ##=> Run SAM Local function with a given event payload
 	@sam local invoke HelloWorldFunction --event events/hello.json
+	@sam local invoke ConnectFunction --event events/connect.json
 
 run: ##=> Run SAM Local API GW and can optionally run new containers connected to a defined network
 	@test -z ${NETWORK} \
