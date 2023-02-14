@@ -1,23 +1,9 @@
 {
-    "body": "hello",
-    "resource": "/hello",
-    "path": "/hello",
+    "body": "connect",
+    "resource": "/connect",
+    "path": "/connect/a/b",
     "httpMethod": "GET",
     "isBase64Encoded": true,
-    "queryStringParameters": {
-        "foo": "bar"
-    },
-    "multiValueQueryStringParameters": {
-        "foo": [
-            "bar"
-        ]
-    },
-    "pathParameters": {
-        "hello": "/hello"
-    },
-    "stageVariables": {
-        "baz": "qux"
-    },
     "headers": {
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
         "Accept-Encoding": "gzip, deflate, sdch",
@@ -114,8 +100,8 @@
             "userAgent": "Custom User Agent String",
             "user": null
         },
-        "path": "/Prod/hello",
-        "resourcePath": "/hello",
+        "path": "/Prod/connect/a/b",
+        "resourcePath": "/connect/a/b",
         "httpMethod": "POST",
         "apiId": "1234567890",
         "protocol": "HTTP/1.1"
