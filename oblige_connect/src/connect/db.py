@@ -25,6 +25,9 @@ def get_connected(platform, source, dest):
   return dynamodb.Table('oblige-connections').query(
     KeyConditionExpression=(
         Key('platform').eq(platform)
+    ),
+    FilterExpression=(
+      Key('endpoint1').eq(source)
     )
   )
 
