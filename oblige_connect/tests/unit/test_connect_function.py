@@ -1,7 +1,6 @@
 import json
 from unittest import mock
 
-from src.connect import connect
 from src.connect.db import get_connected
 
 @mock.patch('src.connect.db.get_connected', return_value=True)

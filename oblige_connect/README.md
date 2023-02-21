@@ -24,6 +24,8 @@ If you prefer to use an integrated development environment (IDE) to build and te
 * [Python 3 installed](https://www.python.org/downloads/)
 * Docker - [Install Docker community edition](https://hub.docker.com/search/?type=edition&offering=community)
 
+You must have Docker running to execute any `make` or local invoke commands.
+
 ## Deploy the sample application
 
 > **Already know this sample? Run: `make hurry` - This command will install app deps, build, and deploy your Serverless application using SAM.**

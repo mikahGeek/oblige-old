@@ -18,7 +18,15 @@ def connected(source, dest):
     return {"source": source, "dest": dest, "connected": get_connected_from_db(source, dest)}
 
 def get_connected_from_db(source, dest):
-    return db.get_connected(source, dest);
+    return db.get_connected('main', source, dest);
+
+
+@connect_app.post("/connect")
+@tracer.capture_method
+def connect(source, dest):
+  source = request.get_json()['source'];
+  dest = request.get_json()['dest'];
+  db.log_connect_request('main', source, dest)
 
 @tracer.capture_lambda_handler
 @logger.inject_lambda_context(

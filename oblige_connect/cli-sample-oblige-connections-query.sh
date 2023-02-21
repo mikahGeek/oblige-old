@@ -1,0 +1,1 @@
+aws dynamodb query --table-name oblige-connections --region us-east-2 --key-condition-expression "platform = :p" --filter-expression "endpoint1 = :e1" --expression-attribute-values '{":p": {"S": "main"}, ":e1": {"S":"a"}}'

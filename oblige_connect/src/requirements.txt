@@ -7,3 +7,4 @@
 # aws-lambda-powertools
 
 mock
+python-dotenv
